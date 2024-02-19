@@ -13,7 +13,7 @@ Contents
 --------
 
 .. toctree::
-   
+
    install
    usage
    api
