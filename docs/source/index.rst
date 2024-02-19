@@ -1,6 +1,6 @@
-# Documentation for eBiota
+Documentation for eBiota
+======================
 
-For installation instructions, please see :doc:`install`.
 
 eBiota is a platform for the automated *ab initio* design of artificial microbial communities with desired functions from a large seeding pool. 
 
@@ -14,6 +14,5 @@ Contents
 
 .. toctree::
 
-   install
    usage
    api
