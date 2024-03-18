@@ -6,17 +6,15 @@ project = 'eBiota'
 copyright = '2024, Zhulab'
 author = 'Zhulab'
 
-release = '0.1'
-version = '0.1.0'
+release = '1.0'
+version = '1.0'
 
 # -- General configuration
 
 extensions = [
-    'sphinx.ext.duration',
-    'sphinx.ext.doctest',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.intersphinx',
+        "sphinx_rtd_theme",
+        'recommonmark',
+        'sphinx_markdown_tables',
 ]
 
 intersphinx_mapping = {
@@ -31,5 +29,10 @@ templates_path = ['_templates']
 
 html_theme = 'sphinx_rtd_theme'
 
-# -- Options for EPUB output
-epub_show_urls = 'footnote'
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+# so a file named "default.css" will overwrite the builtin "default.css".
+html_static_path = ['_static']
+
+# needed by readthedocs
+master_doc = 'index'
