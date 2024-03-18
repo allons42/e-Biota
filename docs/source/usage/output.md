@@ -1,7 +1,7 @@
-Usage
+Output format
 =====
 
-.. _installation:
+
 
 Installation
 ------------
