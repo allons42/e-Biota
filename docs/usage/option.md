@@ -1,47 +1,42 @@
-Usage options
-=====
-
-
-**python [eBiota.py](http://eBiota.py) [--argument]**
-
-
-Building GEM model
-------------
-
-我们使用Carveme开源工具来构建GEM，可以选择基于现有的faa文件或者RefSeq的GCF编号进行重建。也可以直接使用BiGG等数据库中现有的GEM。
+## Usage Options
 
 ```bash
+python eBiota.py [--argument]
+```
+
+## **Building GEM model**
+
+We use the open-source tool CarveMe to build Genome-scale Metabolic Models (GEMs), which can be reconstructed with existing faa file or RefSeq GCF id. Alternatively, you can directly use existing GEMs from databases such as BiGG.
+
+```bash
+# use Carveme to build GEM (.xml or .xml.gz) with faa file
 carve genome.faa -o model.xml.gz
+# use Carveme to build GEM with RefSeq GCF id
 carve --refseq GCF_000005845.2 -o ecoli_k12_mg1655.xml
-
-python eBiota.py --Function rebuild --faa=faa_files --path=.
-python eBiota.py --Function rebuild --gcf=gcf_files --path=.
 ```
 
-Bacteria evaluation
-------------
+## **Bacteria evaluation**
 
 ```bash
-python eBiota.py --Function evaluate 
+python eBiota.py --Function evaluate
 ```
 
-Community design
-------------
+## **Community design**
 
 ```bash
 python eBiota.py --Function design --medium basic --eval_path ./evaluation
 ```
 
---medium: 输入培养基， --aerobic, --anaerobic: 指定有氧or无氧，默认有氧 --glucose, --glucose_free: 指定是否提供葡萄糖，默认有葡萄糖
-
---degrade/--produce：指定目标是降解还是生产
-
---target_substrate, --target_product, --target_intermediate: 指定底物、产物、衔接物，可以让用户从BiGG id中选择
+- --medium: choose the medium, by default “basic” (modified LB medium). Users can define custom medium as input.
+- --aerobic, --anaerobic: choose aerobic or anaerobic. If not specified, this will be determined by oxygen maxFlux in medium.
+- --glucose, --glucose_free: choose whether glucose is provided. If not specified, this will be determined by glucose maxFlux in medium.
+- --degrade/--produce：Specify whether the optimization goal is degradation or production, bydefault “produce”.
+- --target_substrate, --target_product, --target_intermediate: Specify substrates, products, and intermediates, choosing from BiGG IDs.
+- --target_reaction: Specify a desired type of interaction relationship, with parameters belonging to [parasitism, commensalism, neutralism, amensalism, competition, mutualism]. By default all types are displayed.
 
 Notice that the bacteria used for community design should be processed by “Function: evaluate”. The program will check “eval_path” and evaluate missing bacteria, using “evaluation” directory by default.
 
-DeepCooc: Co-occurrence prediction
-------------
+## **Co-occurrence prediction with DeepCooc**
 
 1. 首先使用`parse_data_for_DeepCooc.py`文件将用户输入的菌群物种组成（GCF id）转变为模型可以接受的输入数据：
 
@@ -56,21 +51,21 @@ DeepCooc: Co-occurrence prediction
 2. 使用`hiorco_DeepCooc_main.py`文件进行菌群共存情况预测：
 
    ```bash
-   python hiorco_DeepCooc_main.py --test_x ./temp/x_part_-1_${data_taxa_type}_dataset_moreReacFeature_micro_${micro_num}.npy \\
-       --test_x_met ./temp/x_part_-1_${data_taxa_type}_dataset_moreReacFeature_micro_${micro_num}.npy \\
-       --test_y ./temp/y_part_-1_${data_taxa_type}_dataset_moreReacFeature_micro_${micro_num}.npy \\
-       --micro_num $micro_num \\
-       --input_tsv $file_input \\
-       --saved_dir $saved_dir \\
-       --model_mode FC_mergedCNN \\
-       --dl_model_path ../data/model_file/model_weights.pth \\
+   python hiorco_DeepCooc_main.py --test_x ./temp/x_part_-1_${data_taxa_type}_dataset_moreReacFeature_micro_${micro_num}.npy \\\\
+       --test_x_met ./temp/x_part_-1_${data_taxa_type}_dataset_moreReacFeature_micro_${micro_num}.npy \\\\
+       --test_y ./temp/y_part_-1_${data_taxa_type}_dataset_moreReacFeature_micro_${micro_num}.npy \\\\
+       --micro_num $micro_num \\\\
+       --input_tsv $file_input \\\\
+       --saved_dir $saved_dir \\\\
+       --model_mode FC_mergedCNN \\\\
+       --dl_model_path ../data/model_file/model_weights.pth \\\\
    ```
 
    其中`--test_x`和`--test_x_met`分别接收上述`moreReacFeature`和`metflux_ori_431`生成的输入特征（其中`--test_x_met`可以设为None而不启用这部分特征信息）。`--input_tsv`和`--micro_num`的输入与上文一致。`--saved_dir`为输出结果目录，`--dl_model_path`和`--model_mode`给定模型信息。输出的文件为在输入的tsv文件后添加两列`DeepCooc_pred_value`和`DeepCooc_Co_occurrence`分别为模型预测的菌群共存得分（0-1之间的数越接近1越倾向于共存）以及模型预测的共存情况（0为不共存1为共存）。
 
 3. 除了`DeepCooc`的共存预测指标外，我们还提供来自其他文献的菌群相互作用指标：
 
-   ```bash
+   ```
    python other_filter_label.py --file_input $file_input --file_out $file_out
    ```
 

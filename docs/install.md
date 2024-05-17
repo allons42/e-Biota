@@ -1,26 +1,8 @@
 # Installation
 
+## **Conda**
 
-
-```sh
-# Installation of dependencies
-
-# Download latest eBiota version from github
-git clone https://github.com/... && cd eBiota
-
-# Download latest database
-
-```
-
-Test your installation with:
-```sh
-./test
-```
-
-
-
-## conda
-There is no conda eBiota package available yet but all dependencies can be installed from conda channels without super user rights using the following steps:
+To ensure project-specific dependencies and avoid modifying system environment, we strongly recommend using conda to create virtual environments. All dependencies can be installed from conda channels without super user rights using the following steps:
 
 **1. Install Mini-/Anaconda**
 
@@ -28,28 +10,43 @@ Follow the instructions provided by conda to Install [Anaconda/Miniconda](https:
 
 **2. Create conda environment for eBiota and adding package sources**
 
-```sh
-# Cloning the development version of eBiota
-git clone https://github.com/...
-cd gapseq
+```bash
+# Download latest version of eBiota from github
+git clone <https://github.com/allons42/e-Biota.git>
+cd e-Biota
 
-# Create and activate a conda environment "ebiota-dev"
-conda env create -n ebiota-dev --file ebiota_env.yml
-conda activate ebiota-dev
+# Create and activate a conda environment "ebiota_env"
+conda env create -n ebiota_env --file ebiota_env.yml
+conda activate ebiota_env
 ```
 
 **3. Test the installation**
 
-```sh
+```
 ./test
 ```
 
+## **Pytorch**
 
+The DeepCooc module, used for co-occurrence analysis, utilizes deep learning and requires the installation of the PyTorch package. Please refer to the [PyTorch](https://pytorch.org/get-started/locally/) official website to choose the appropriate CUDA version or CPU version for installation. We are using the xxx version, and other versions should be feasible. If there are any problems, feel free to raise an issue on our [GitHub](https://github.com/allons42/e-Biota).
 
-## Gurobi solver support
+```bash
+# the version we used
+pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1 -f <https://download.pytorch.org/whl/cu111/torch_stable.html>
+```
 
-We recommend using *Gurobi* as LP-solver as it is usually faster than *glpk*. The *Gurobi* solver is free for academic use ([see here](https://community.ibm.com/community/user/ai-datascience/blogs/xavier-nodet1/2020/07/09/cplex-free-for-students)). Please follow the installation instructions for *Gurobi* provided by ....
+## **Optimizer for Linear Programming**
 
+We recommend using *Gurobi* as LP-solver as it is usually faster than *glpk*. The *Gurobi* solver is free for academic use ([see here](https://www.gurobi.com/features/academic-named-user-license/)). Please follow the installation instructions for *Gurobi*.
 
+## Collect e-Biota database
 
-## Troubleshooting
+The complete dataset can be downloaded from Zenodo：link, including the following content:
+
+GEM: eBiota-GEM database，Including 21,514 Genome-Scale Metabolic Models (GEMs) constructed using CarveMe based on RefSeq complete genomes.
+
+media：including BasicLB.csv, ComLB.csv, ASFMedium.csv.
+
+full_result: The result calculated from eBiota-GEM includes various combinations for two-bacterial consortia, covering strain IDs, substrates, products, yields, dual-bacterial growth, single-bacterial growth, co-occurrence predictions, and interactions.
+
+## **Troubleshooting**
