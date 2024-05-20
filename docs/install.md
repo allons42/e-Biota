@@ -58,10 +58,16 @@ If Perl is not availble, follow the instructions on the [official website](https
 
 The complete dataset can be downloaded from Zenodo：link, including the following content:
 
-GEM: eBiota-GEM database，Including 21,514 Genome-Scale Metabolic Models (GEMs) constructed using CarveMe based on RefSeq complete genomes.
+### GEM
 
-media：including BasicLB.csv, ComLB.csv, ASFMedium.csv.
+eBiota-GEM database，Including 21,514 Genome-Scale Metabolic Models (GEMs) constructed using CarveMe based on RefSeq complete genomes.
 
-full_result: The result calculated from eBiota-GEM includes various combinations for two-bacterial consortia, covering strain IDs, substrates, products, yields, dual-bacterial growth, single-bacterial growth, co-occurrence predictions, and interactions.
+### media
+
+including BasicLB.csv, ComLB.csv, ASFMedium.csv.
+
+### full_result
+
+The result calculated from eBiota-GEM includes various combinations for two-bacterial consortia, covering strain IDs, substrates, products, yields, dual-bacterial growth, single-bacterial growth, co-occurrence predictions, and interactions.
 
 ## **Troubleshooting**

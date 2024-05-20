@@ -3,8 +3,9 @@ Output format
 
 The base output file is TSV (Tab-Separated Values) format, including the following contents:
 
-| Bac1                  | id of the 1st bacterium                                      |
+| column id             | meaning                                                      |
 | --------------------- | ------------------------------------------------------------ |
+| Bac1                  | id of the 1st bacterium                                      |
 | Bac2                  | id of the 2nd bacterium                                      |
 | Growth1               | growth rate of the 1st bacterium                             |
 | Growth2               | growth rate of the 2nd bacterium                             |
