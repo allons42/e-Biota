@@ -39,6 +39,17 @@ python eBiota.py --Function design --substrate glc__D_e --product h2_e
 
 There are plenty of configurations to custom your communities, detailed in `config.json`. For more usage and tutorials, see the [documentation](https://e-biota.readthedocs.io/en/latest/index.html).
 
+## Main Results
+
+The results mentioned in our paper is quite large, and can be downloaded from zenodo: link.
+
+The following results are included:
+
+1. eBiota-GEM: 21,514 Genome-Scale Metabolic Models (GEMs) constructed using CarveMe based on RefSeq complete genomes.
+2. baterial evaluation: The evaluation of the ability to uptake substrates and secret productions for all 21514 GEMs.
+3. community design result: The result calculated from eBiota-GEM includes various combinations for two-bacterial consortia, covering strain IDs, substrates, products, yields, dual-bacterial growth, single-bacterial growth, co-occurrence predictions, and interactions. 
+4.  cultivation information: The mapping of eBiota-GEM to BacDive database, including hierarchical category,  culture medium, temperature, and oxygen tolerance. The data is accessed at Oct 15 2022.
 
 ## Citation
 
+eBiota: a platform for *ab initio* designing microbial communities with desired functions
