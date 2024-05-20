@@ -1,10 +1,12 @@
-## Usage Options
+Usage Options
+=====
 
 ```bash
 python eBiota.py [--argument]
 ```
 
-## **Building GEM model**
+Building GEM model
+---------
 
 We use the open-source tool CarveMe to build Genome-scale Metabolic Models (GEMs), which can be reconstructed with existing faa file or RefSeq GCF id. Alternatively, you can directly use existing GEMs from databases such as BiGG.
 
@@ -15,13 +17,15 @@ carve genome.faa -o model.xml.gz
 carve --refseq GCF_000005845.2 -o ecoli_k12_mg1655.xml
 ```
 
-## **Bacteria evaluation**
+Bacteria evaluation
+---------
 
 ```bash
 python eBiota.py --Function evaluate
 ```
 
-## **Community design**
+Community design
+---------
 
 ```bash
 python eBiota.py --Function design --medium basic --eval_path ./evaluation
@@ -36,7 +40,8 @@ python eBiota.py --Function design --medium basic --eval_path ./evaluation
 
 Notice that the bacteria used for community design should be processed by “Function: evaluate”. The program will check “eval_path” and evaluate missing bacteria, using “evaluation” directory by default.
 
-## **Co-occurrence prediction with DeepCooc**
+Co-occurrence prediction with DeepCooc
+---------
 
 1. 首先使用`parse_data_for_DeepCooc.py`文件将用户输入的菌群物种组成（GCF id）转变为模型可以接受的输入数据：
 

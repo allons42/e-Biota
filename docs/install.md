@@ -18,12 +18,16 @@ cd e-Biota
 # Create and activate a conda environment "ebiota_env"
 conda env create -n ebiota_env --file ebiota_env.yml
 conda activate ebiota_env
+
+# install Carveme for GEM rebuild, according to <https://carveme.readthedocs.io/>
+pip install carveme
+conda install -c bioconda diamond
 ```
 
 **3. Test the installation**
 
-```
-./test
+```bash
+python eBiota.py --test
 ```
 
 ## **Pytorch**
@@ -37,7 +41,18 @@ pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1 -f 
 
 ## **Optimizer for Linear Programming**
 
-We recommend using *Gurobi* as LP-solver as it is usually faster than *glpk*. The *Gurobi* solver is free for academic use ([see here](https://www.gurobi.com/features/academic-named-user-license/)). Please follow the installation instructions for *Gurobi*.
+We recommend using *Gurobi* as LP-solver, as it is usually faster than the default optimizer *glpk*. The *Gurobi* solver is free for academic use ([see here](https://www.gurobi.com/features/academic-named-user-license/)). Please follow the instructions to install *Gurobi*.
+
+## Perl
+
+Our algorithm requires Perl, which is usually already installed in computer system.
+
+```bash
+# check the version and availability of Perl
+perl -v
+```
+
+If Perl is not availble, follow the instructions on the [official website](https://www.perl.org/get.html) to install.
 
 ## Collect e-Biota database
 
