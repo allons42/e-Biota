@@ -7,7 +7,7 @@ We started our medium design with Luria-Bertani (LB) medium, one of the most bas
 
 ## Custom medium
 
-eBiota accepts custom medium in CSV format, as demonstrated in the [Usage]() section. The input file for the medium must include two essential columns: **id** and **maxFlux**.
+eBiota accepts custom medium in CSV format, as demonstrated in the Usage section. The input file for the medium must include two essential columns: **id** and **maxFlux**.
 
 ### id
 
