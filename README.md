@@ -10,7 +10,7 @@ We developed eBiota, a platform for the *ab initio* design of artificial microbi
 
 ## Installation
 
-Conda is recommended to install eBiota in an virtual environment.
+We recommend installing eBiota in an virtual environment with conda.
 
 ```bash
 # Download latest version of eBiota
@@ -48,7 +48,8 @@ The following results are included:
 1. eBiota-GEM: 21,514 Genome-Scale Metabolic Models (GEMs) constructed using CarveMe based on RefSeq complete genomes.
 2. baterial evaluation: The evaluation of the ability to uptake substrates and secret productions for all 21514 GEMs.
 3. community design result: The result calculated from eBiota-GEM includes various combinations for two-bacterial consortia, covering strain IDs, substrates, products, yields, dual-bacterial growth, single-bacterial growth, co-occurrence predictions, and interactions. 
-4.  cultivation information: The mapping of eBiota-GEM to BacDive database, including hierarchical category,  culture medium, temperature, and oxygen tolerance. The data is accessed at Oct 15 2022.
+4. cultivation information: The mapping of eBiota-GEM to BacDive database, including hierarchical category,  culture medium, temperature, and oxygen tolerance. The data is accessed at Oct 15 2022.
+5. supplementary tables in papers.
 
 ## Citation
 
