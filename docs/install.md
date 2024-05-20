@@ -13,7 +13,7 @@ Follow the instructions provided by conda to Install [Anaconda/Miniconda](https:
 ```bash
 # Download latest version of eBiota from github
 git clone https://github.com/allons42/e-Biota.git
-cd e-Biota
+cd e-Biota/src/
 
 # Create and activate a conda environment "ebiota_env"
 conda env create -n ebiota_env --file ebiota_env.yml
