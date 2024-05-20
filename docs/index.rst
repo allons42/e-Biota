@@ -7,6 +7,11 @@ eBiota is a platform for the automated *ab initio* design of artificial microbia
 
 eBiota is built and maintained by the `ZhuLab<https://cqb.pku.edu.cn/zhulab/>`_ at Peking University.
 
+`Quick reStructuredText`__。
+
+.. __: http://docutils.sourceforge.net/docs/user/rst/quickref.html
+
+
 Check out the following instructions for installation, usage and tutorials.
 
 
@@ -30,4 +35,4 @@ Check out the following instructions for installation, usage and tutorials.
    :maxdepth: 1
    :caption: Tutorials
 
-   
+   /tutorials/community
